@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Canvas Practice</title>
+  <link rel="stylesheet" type="text/css" href="canvas.css">
+  <script src="canvas.js"></script>
+</head>
+
+<body>
+  <article class="main">
+    <h1>This is Canvas Practice.</h1>
+    <div class="canvasContainer">
+      <canvas id="drawing"></canvas>
+      <canvas id="drawingSecond"></canvas>
+    </div>
+    <div class="userChoice">
+      Choose your background color for left canvas: <input type="color" id="colorLeft" value="#ffb3b3">
+    </div>
+    <div class="userChoice">
+      Draw a square on the left canvas<input class="slider" id="slider" type="range" min="10" max="100"
+        oninput="drawSquare()">
+    </div>
+    <div>
+      <input class="button" type="button" value="clear drawing left" onclick="clearDrawLeft()">
+    </div>
+    <div class="userChoice">
+      Choose your background color for right canvas: <input type="color" value="#001A57" id="colorRight"><span
+        class="userText">Type your text in right canvas</span><input type="text" id="textRight" autocomplete="on">
+      <input class="button" type="button" value="right draw" onclick="drawRightSide()">
+    </div>
+    <div>
+      <input class="button" type="button" value="clear drawing right" onclick="clearDrawRight()">
+    </div>
+  </article>
+  <article class="main">
+    <h1>Add Filter</h1>
+    <input class="button" type="button" value="add grayscale filter" onclick="grayscale()">
+    <input class="button" type="button" value="add blur filter" onclick="blurImage()">
+    <input class="button" type="button" value="clear filter" onclick="clearFilter()">
+    <div class="canvasContainer">
+      <img class="image" id="img" src="https://2.imimg.com/data2/LQ/QV/MY-/teddy-small-size-500x500.jpg">
+      <canvas id="imageCanvas"></canvas>
+    </div>
+  </article>
+</body>
+
+</html>
