@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+.main {
+  height: 100vh;
+  background-color: black;
+}
+.header {
+  padding: 30px;
+  text-align: center;
+  font-size: 40px;
+  color: rgb(66, 227, 245);
+}
+.hw-list {
+  margin: auto;
+  width: 550px;
+}
+.hw-list a{
+  text-decoration: none;
+  color: rgb(66, 227, 245);
+  font-size: 30px;
+}
+ul {
+  list-style-type: square;
+  color: white;
+  font-size: 30px;
+}
+li {
+  padding: 20px;
+}
