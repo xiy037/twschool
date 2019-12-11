@@ -8,5 +8,5 @@ All homework docs have been listed here and the link will be updated:
 
 ## Other
 
-- test with jasmine tutorial: [https://github.com/xiy037/twschool/blob/master/test_with_jasmine_practice/JS%20Test%20with%20npm%20and%20Jasmine.md](https://github.com/xiy037/twschool/blob/master/test_with_jasmine_practice/JS Test with npm and Jasmine.md)
+- test with jasmine tutorial: <https://github.com/xiy037/twschool/blob/master/test_with_jasmine_practice/JS%20Test%20with%20npm%20and%20Jasmine.md>
 
