@@ -12,7 +12,7 @@ for (var i = 0; i < listAllItems().length; i++) {
     var tableCell = document.createElement("td");
     tableRow.appendChild(tableCell);
   }
-  tableRow.children[0].innerHTML = "<input type='checkbox'>";
+  tableRow.children[0].innerHTML = "<input type='checkbox' class='checkbox'>";
   tableRow.children[1].innerHTML = item.name;
   tableRow.children[2].innerHTML = item.price;
   tableRow.children[3].innerHTML = item.count;
@@ -36,7 +36,8 @@ checkAllCell.innerHTML = "全选<input type='checkbox'>";
 endRow.appendChild(checkAllCell);
 var sumCell = document.createElement("td");
 sumCell.colSpan = 4;
-sumCell.innerHTML = printSum();
+sumCell.id = "result";
+sumCell.innerHTML = "";
 endRow.appendChild(sumCell);
 table.appendChild(endRow);
 table.onclick = function (event) {
@@ -46,10 +47,12 @@ table.onclick = function (event) {
   if (btnType === "button") {
     changeCount(target);
     targetRow.children[4].innerHTML = calculatePrice(targetRow);
+    addToSum();
   } else if (btnType === "checkbox") {
-    addToSum(target);
+    addToSum();
   }
 };
+
 
 
 function changeCount(target) {
@@ -67,11 +70,18 @@ function changeCount(target) {
 function calculatePrice(rowNode) {
   return rowNode.children[2].innerText * rowNode.children[3].innerText;
 }
-function addToSum(target) {
-
+function addToSum() {
+  var sum = {totalCount: 0, totalPrice: 0};
+  var allCheckBox = document.getElementsByClassName("checkbox");
+  for (var i = 0; i < allCheckBox.length; i++) {
+    if (allCheckBox[i].checked === true) {
+      sum.totalCount += Number(allCheckBox[i].parentNode.parentNode.children[3].childNodes[1].nodeValue);
+      sum.totalPrice += Number(allCheckBox[i].parentNode.parentNode.children[4].innerHTML);
+  }
+  sumCell.innerHTML = "共计" + sum.totalCount + "件商品，" + sum.totalPrice + "￥";
+}
 }
 
-function printSum() {}
 
 function listAllItems() {
   var carProducts = [
