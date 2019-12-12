@@ -2,7 +2,7 @@
 //把列表内容输入DOM，用循环输入数组的每个obj
 //数量按钮加减，显示数量加减
 //根据数量和单价计算价格
-//求和，把选中框那行的数量和价格相加
+//求和，把选中框那行的数量和价格相加--特例：全选框选中时所有框都变为选中
 var table = document.getElementById("myTable");
 for (var i = 0; i < listAllItems().length; i++) {
   var item = listAllItems()[i];
@@ -49,7 +49,9 @@ table.onclick = function (event) {
     targetRow.children[4].innerHTML = calculatePrice(targetRow);
     addToSum();
   } else if (btnType === "checkbox") {
-    selectAllCheckbox();
+    if (target.id === "checkAll") {
+      selectAllCheckbox();
+    }
     addToSum();
   }
 };
