@@ -4,7 +4,6 @@
 //根据数量和单价计算价格
 //求和，把选中框那行的数量和价格相加
 var table = document.getElementById("myTable");
-// table.addEventListener("click", doCalculation(event));
 for (var i = 0; i < listAllItems().length; i++) {
   var item = listAllItems()[i];
   var tableRow = document.createElement("tr");
@@ -40,19 +39,30 @@ sumCell.colSpan = 4;
 sumCell.innerHTML = printSum();
 endRow.appendChild(sumCell);
 table.appendChild(endRow);
-
-function doCalculation(event) {
+table.onclick = function (event) {
   var target = event.target;
   var btnType = target.type;
+  var targetRow = target.parentNode.parentNode;
   if (btnType === "button") {
     changeCount(target);
+    targetRow.children[4].innerHTML = calculatePrice(targetRow);
   } else if (btnType === "checkbox") {
     addToSum(target);
   }
-}
+};
+
 
 function changeCount(target) {
-  
+  var countNum = target.parentNode.childNodes[1].nodeValue;
+  if (target.value === "-") {
+    countNum--;
+    if (countNum >= 0) {
+      target.parentNode.childNodes[1].nodeValue = countNum;
+    }    
+  } else {
+    countNum++;
+    target.parentNode.childNodes[1].nodeValue = countNum;
+  }
 }
 function calculatePrice(rowNode) {
   return rowNode.children[2].innerText * rowNode.children[3].innerText;
