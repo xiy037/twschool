@@ -3,9 +3,10 @@
   <title>practice</title>
 </head>
 <body>
-
-  <div id="outDiv">
-    <p id="p1">This is a paragraph.</p>
+  <div id="outDiv" onclick = "changeBgColor()">
+    <p id="p1">This is a paragraph.
+      <input id="captureDemo" type="button" value="demo"/>
+    </p>
     <p id="p2">This is another paragraph.</p>
     <p>Password<input type="password" /></p>
   </div>
@@ -26,6 +27,22 @@
     newStyle.setAttribute("type", "text/css");
     newStyle.innerHTML = "#outDiv {width: 300px; margin: auto; background-color: pink}";
     document.querySelector("head").appendChild(newStyle);
+
+    function changeBgColor() {
+      if (event.target.style.backgroundColor === "pink") {
+        event.target.style.backgroundColor = "yellow";
+        document.getElementById("outDiv").style.backgroundColor = "grey";
+      } else {
+        event.target.style.backgroundColor = "pink";
+        document.getElementById("outDiv").style.backgroundColor = "pink";
+      }
+    
+    }
+    var demo = document.getElementById("captureDemo");
+    var p1 = document.getElementById("p1");
+    demo.addEventListener("click", e => alert("Capturing demo"), true);
+    p1.addEventListener("click", e => alert("Capturing p1"), true);
+    
   </script>
 
 </body>

@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.content {
+  width: 500px;
+  margin: auto;
+  margin-top: 30px;
+}
+.title {
+  padding: 10px;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+th {
+  height: 50px;
+  background-color: #f2f2f2;
+}
+th, td {
+  border: 1px solid #d9d9d9;
+}
