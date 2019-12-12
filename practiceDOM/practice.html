@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>practice</title>
+</head>
+<body>
+
+  <div id="outDiv">
+    <p id="p1">This is a paragraph.</p>
+    <p id="p2">This is another paragraph.</p>
+    <p>Password<input type="password" /></p>
+  </div>
+
+  <script>
+    var outElement = document.getElementById("outDiv");
+    var para = document.createElement("p");
+    var text = document.createTextNode("This is new.");
+    para.appendChild(text);
+    outElement.appendChild(para);
+    var newPara = document.createElement("p");
+    newPara.id = "new-p";
+    var newText = document.createTextNode("another new paragraph insertion");
+    newPara.appendChild(newText);
+    outElement.insertBefore(newPara, outElement.childNodes[3]);
+
+    var newStyle = document.createElement("style");
+    newStyle.setAttribute("type", "text/css");
+    newStyle.innerHTML = "#outDiv {width: 300px; margin: auto; background-color: pink}";
+    document.querySelector("head").appendChild(newStyle);
+  </script>
+
+</body>
+
+</html>

@@ -11,3 +11,14 @@ var result = document.getElementById("result");
     password.value = "";
   }
 }
+function showPassword() {
+  var enterPw = document.getElementById("password");
+  var buttonText = document.getElementById("showBtn");
+  if (buttonText.value === "show") {
+    enterPw.type = "text";
+    buttonText.value = "hide";
+  } else {
+    enterPw.type = "password";
+    buttonText.value = "show";
+  }
+}
