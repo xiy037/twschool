@@ -32,7 +32,7 @@ for (var i = 0; i < listAllItems().length; i++) {
 var endRow = document.createElement("tr");
 var checkAllCell = document.createElement("td");
 endRow.className = "row";
-checkAllCell.innerHTML = "全选<input type='checkbox'>";
+checkAllCell.innerHTML = "全选<input type='checkbox' id='checkAll'>";
 endRow.appendChild(checkAllCell);
 var sumCell = document.createElement("td");
 sumCell.colSpan = 4;
@@ -49,11 +49,10 @@ table.onclick = function (event) {
     targetRow.children[4].innerHTML = calculatePrice(targetRow);
     addToSum();
   } else if (btnType === "checkbox") {
+    selectAllCheckbox();
     addToSum();
   }
 };
-
-
 
 function changeCount(target) {
   var countNum = target.parentNode.childNodes[1].nodeValue;
@@ -67,9 +66,25 @@ function changeCount(target) {
     target.parentNode.childNodes[1].nodeValue = countNum;
   }
 }
+
 function calculatePrice(rowNode) {
   return rowNode.children[2].innerText * rowNode.children[3].innerText;
 }
+
+function selectAllCheckbox() {
+  var checkAll = document.getElementById("checkAll");
+  var allCheckBox = document.getElementsByClassName("checkbox");
+  if (checkAll.checked === true) {
+    for (var i = 0; i < allCheckBox.length; i++) {
+      allCheckBox[i].checked = true;
+    }
+  } else {
+    for (var i = 0; i < allCheckBox.length; i++) {
+      allCheckBox[i].checked = false;
+    }
+  }
+}
+
 function addToSum() {
   var sum = {totalCount: 0, totalPrice: 0};
   var allCheckBox = document.getElementsByClassName("checkbox");
