@@ -1,12 +1,60 @@
 <html>
+
 <head>
   <title>practiceDOM</title>
-  <script type = "text/javascript" src = practiceDOM.js></script>
-</head>    
+  <script type="text/javascript" src=practiceDOM.js></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .content {
+      width: 300px;
+      height: 500px;
+      margin: auto;
+      margin-top: 100px;
+    }
+    .enter {
+      display: flex;
+      padding: 5px;
+    }
+    .name {
+      width: 25%;
+    }
+    .input {
+      width: 75%;
+    }
+    .button {
+      width: 300px;
+    }
+    .submit {
+      padding: 10px;
+      width: 100%;
+      background-color: green;
+      color: white;
+    }
+    #result {
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
 <body>
-  <div>Username<input type = "text" id = "username"></div>
-  <div>Password<input type = "text" id = "password"></div>
-  <div><input type = "button" value = "submit" onclick = "check()"></div>
-  <div id = "result"></div>
+  <div class="content">
+    <div class="enter">
+      <p class="name">Username</p>
+      <input class="input" type="text" id="username" autocomplete="on" autofocus>
+    </div>
+    <div class="enter">
+      <p class="name">Password</p>
+      <input class="input" type="text" id="password">
+    </div>
+    <div class="button">
+      <input class="submit" type="button" value="submit" onclick="check()">
+    </div>
+    <div id="result"></div>
+  </div>
 </body>
+
 </html>
