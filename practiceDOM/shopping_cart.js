@@ -1,4 +1,3 @@
-//将JSON的内容转换为商品列表
 //把列表内容输入DOM，用循环输入数组的每个obj
 //数量按钮加减，显示数量加减
 //根据数量和单价计算价格
@@ -92,7 +91,6 @@ function selectAllCheckbox() {
 function addToSum() {
   var sum = {totalCount: 0, totalPrice: 0};
   var allCheckBox = document.getElementsByClassName("checkbox");
-  console.log(allCheckBox.length);
   for (var j = 0; j < allCheckBox.length; j++) {
     var i = document.getElementsByClassName("checkbox")[j].id.split("-")[0];
     var count = document.getElementById(`${i}-count`).innerText;
