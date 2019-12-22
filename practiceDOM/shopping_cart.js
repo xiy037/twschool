@@ -18,7 +18,7 @@ function addTable() {
       changeCount(target);
       calculateRowPrice(i);
       addToSum();
-      zeroToRemove(target);
+      isZeroToRemove(target);
     } else if (btnType === "checkbox") {
       if (target.id === "checkAll") {
         selectAllCheckbox();
@@ -66,7 +66,7 @@ function changeCount(target) {
     document.getElementById(`${i}-count`).innerText = countNum;
   }
 }
-function zeroToRemove(target) {
+function isZeroToRemove(target) {
   var i = target.id.split("-")[0];
   var countNum = document.getElementById(`${i}-count`).innerText;
   if (countNum === "0") {
