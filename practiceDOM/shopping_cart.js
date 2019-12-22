@@ -18,6 +18,7 @@ function addTable() {
       changeCount(target);
       calculateRowPrice(i);
       addToSum();
+      zeroToRemove(target);
     } else if (btnType === "checkbox") {
       if (target.id === "checkAll") {
         selectAllCheckbox();
@@ -57,14 +58,19 @@ function changeCount(target) {
   var countNum = document.getElementById(`${i}-count`).innerText;
   if (target.value === "-") {
     countNum--;
-    if (countNum > 0) {
-      document.getElementById(`${i}-count`).innerText = countNum;
-    } else if (countNum === 0) {
-      document.getElementById(`${i}-row`).style.display = "none";
-    }    
-  } else {
+    if (countNum >= 0) {
+      document.getElementById(`${i}-count`).innerText = countNum;   
+  }
+} else {
     countNum++;
     document.getElementById(`${i}-count`).innerText = countNum;
+  }
+}
+function zeroToRemove(target) {
+  var i = target.id.split("-")[0];
+  var countNum = document.getElementById(`${i}-count`).innerText;
+  if (countNum === "0") {
+    document.getElementById(`${i}-row`).remove();
   }
 }
 
