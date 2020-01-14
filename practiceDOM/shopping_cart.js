@@ -59,9 +59,9 @@ function changeCount(target) {
   if (target.value === "-") {
     countNum--;
     if (countNum >= 0) {
-      document.getElementById(`${i}-count`).innerText = countNum;   
-  }
-} else {
+      document.getElementById(`${i}-count`).innerText = countNum;
+    }
+  } else {
     countNum++;
     document.getElementById(`${i}-count`).innerText = countNum;
   }
@@ -75,9 +75,9 @@ function isZeroToRemove(target) {
 }
 
 function calculateRowPrice(i) {
-    var count = document.getElementById(`${i}-count`).innerText;
-    var price = document.getElementById(`${i}-price`).innerText;
-    document.getElementById(`${i}-total`).innerText = count * price;
+  var count = document.getElementById(`${i}-count`).innerText;
+  var price = document.getElementById(`${i}-price`).innerText;
+  document.getElementById(`${i}-total`).innerText = count * price;
 }
 
 function selectAllCheckbox() {
@@ -95,7 +95,7 @@ function selectAllCheckbox() {
 }
 
 function addToSum() {
-  var sum = {totalCount: 0, totalPrice: 0};
+  var sum = { totalCount: 0, totalPrice: 0 };
   var allCheckBox = document.getElementsByClassName("checkbox");
   for (var j = 0; j < allCheckBox.length; j++) {
     var i = document.getElementsByClassName("checkbox")[j].id.split("-")[0];
@@ -104,9 +104,9 @@ function addToSum() {
     if (allCheckBox[j].checked === true) {
       sum.totalCount += Number(count);
       sum.totalPrice += Number(price);
+    }
+    document.getElementById("result").innerHTML = "共计" + sum.totalCount + "件商品，" + sum.totalPrice + "￥";
   }
-  document.getElementById("result").innerHTML = "共计" + sum.totalCount + "件商品，" + sum.totalPrice + "￥";
-}
 }
 
 function listAllItems() {
